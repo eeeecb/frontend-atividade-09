@@ -1,21 +1,22 @@
 import { Outlet, Link } from "react-router-dom"
+import { House, BookText, Phone } from 'lucide-react'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 
-export default function Layout() {
+export default function Layout({ showHeader = true }) {
   return (
     <div className="min-h-screen bg-gray-900 text-gray-100 flex flex-col">
-      <Header />
+      {showHeader && <Header />}
       <nav className="bg-gray-800 border-b border-gray-700 p-4">
-        <ul className="flex space-x-4 justify-center">
+        <ul className="flex space-x-8 justify-center">
           <li>
-            <Link to="/" className="text-blue-400 hover:text-blue-300 transition-colors">Home</Link>
+            <Link to="/" className="flex items-center text-blue-400 hover:text-blue-300 transition-colors"><House className="mr-2" />Home</Link>
           </li>
           <li>
-            <Link to="/blogs" className="text-blue-400 hover:text-blue-300 transition-colors">Blogs</Link>
+            <Link to="/blogs" className="flex items-center text-blue-400 hover:text-blue-300 transition-colors"><BookText className="mr-2" />Blog</Link>
           </li>
           <li>
-            <Link to="/contact" className="text-blue-400 hover:text-blue-300 transition-colors">Contact</Link>
+            <Link to="/contact" className="flex items-center text-blue-400 hover:text-blue-300 transition-colors"><Phone className="mr-2" />Contato</Link>
           </li>
         </ul>
       </nav>
